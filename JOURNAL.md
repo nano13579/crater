@@ -8,9 +8,13 @@ a custom guitar pedal PCB - Crater is reference to the Comet Distortion modifica
 ## General Vocab
 
 **Impedance**: opposes AC and changes depending on signal frequency, measured in Ohms
+
 **Low Pass Filter**: allows only certain low frequency under a certain threshold to pass; for audio it is used to reduce sharp high frequency noises
+
 **Analog Buffer**: 
+
 **Source**: device/unit sending an electrical signal
+
 **Load**: device/unit receiving or measuring an electrical signal
 
 ## Day 1
@@ -44,3 +48,10 @@ I made a general wiring diagram to better visual connections between components.
 For Next Time
 - Finish wiring SDRAM and Flash to the STM
 - Create more concrete plans for operational amplifiers etc.
+
+## Day 4
+
+I learned that the xT in the IS42 SDRAM represented solderable pins over the difficult to handle BGA, so I ended up having chose the right package. I set up the basic power pins for the STM, placing 100nF capacitors per VDD pin and a single 10uF bulk capacitor. Since the audio is handled using an external ADC and DAC in the form of the PCM codec, I can connect VDDA to both VSSA and VREF+. I [found](https://electronics.stackexchange.com/questions/589927/purpose-of-vref-in-mcus-adcs) that VREF+ marks an absolute reference voltage (the difference in potential energy between a point and a defined, or absolute, value) which the STM32H7 can compare input analog signals to. In simpler chips VREF+ is preconnected to VDDA, however this STM provides the ability to use a lower reference voltage for higher precision. However, since I do not plan on using the onboard ADC (much? - will disconnect the pin later if need be), I will not need this extra precision, so the VCC will be used as a reference instead. I found general guidelines for power supply decoupling in the [STM32H750IB datasheet](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.st.com/resource/en/datasheet/stm32h750ib.pdf&ved=2ahUKEwjZ9bLWxIiVAxWVKEQIHahbDHcQFnoECCEQAQ&usg=AOvVaw3bOUsi3I8JUORLRKVO5P65). 
+
+For Next Time
+- Same goals as last time
