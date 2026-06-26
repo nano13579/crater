@@ -60,6 +60,12 @@ For Next Time
 
 Added a ferrite bead to bridge DC to the noisy AC rail. The bead provides resistance against the alternating current but allows DC current to flow through, powering the analog components. I chose 120R impedance at 100MHz, only because I've seen examples of this value bead having been used in other similar chips. I'm not sure if it will work for my board, will likely have to find and check against a possible bead's ZRX graph. I also realized that I forgot the external clock as a part of the DSP to my wiring diagram. Some general notes that I took when wiring the [IS42 SDRAM](https://www.issi.com/WW/pdf/42-45S16400J.pdf): This is a 16 bit wide chip and requires data to be transferred in its full width, so the data mask pins (LDQM and UDQM) are used to write data in the form of two 8 bit chunks. FMC_NBL0 handles the lower byte and FMC_NBL1 handles the upper byte, the STM32 can choose to write to one or to the other or both, whichever is not in use is driven high, telling the IS42 to ignore the byte. FMC itself stands for Flexible Memory Controller and allows the STM32 to integrate external memory sources and map these external IC's - processes will albeit be a little slower than on-board hardware. DQ0 to DQ16 on the IS42 are I/O. The 12 addressable pins A0 through A11 specify data storage/retrieval location in terms of row and column addresses. Both I/O and and addressable pins are bidirectional to allow for both reading and writing. Control lines are wired appropriately with pins that have predetermined FMC functions (found in the Pin Description section of the SMT32 datasheet). I'm not entirely sure that I wired the VDD and GND pins right, will check this later.
 
-
 For Next Time
 - Same as last time, but implement external crystal oscillator
+
+## Day 6
+
+Finished setting up the external clock, I still have to choose a specific crystal that is rated for the 18pF caps, but will likely do this later. Also completed wiring the LP2985 1.8V LDO, which I actually misplaced in my initial wiring diagram. 9V is first stepped down to 3.3V using the TPS6. This 3.3V is then brought to 1.8V to power flash and codec etc. I had initially wired the TPS62172DSG according the "Typical Application Schematic" in the documentation for the chip, only to realize that the diagram was for a different version of the TPS6. The chip in the documentation had a fixed 1.8V output while I am using a 3.3V output, so the feedback pin should be connected to ground (docs say analog, but I'm still not sure) or no connect. The TPS62172DSG also has a lower output current compared to that of the chip shown in the diagram, so the value of the inductor will have to change (value TBD).
+
+For Next Time
+- Draw PCM3060 connections
