@@ -65,7 +65,14 @@ For Next Time
 
 ## Day 6
 
-Finished setting up the external clock, I still have to choose a specific crystal that is rated for the 18pF caps, but will likely do this later. Also completed wiring the LP2985 1.8V LDO, which I actually misplaced in my initial wiring diagram. 9V is first stepped down to 3.3V using the TPS6. This 3.3V is then brought to 1.8V to power flash and codec etc. I had initially wired the TPS62172DSG according the "Typical Application Schematic" in the documentation for the chip, only to realize that the diagram was for a different version of the TPS6. The chip in the documentation had a fixed 1.8V output while I am using a 3.3V output, so the feedback pin should be connected to ground (docs say analog, but I'm still not sure) or no connect. The TPS62172DSG also has a lower output current compared to that of the chip shown in the diagram, so the value of the inductor will have to change (value TBD).
+Finished setting up the external clock, I still have to choose a specific crystal that is rated for the 18pF caps, but will likely do this later. Also completed wiring the LP2985 1.8V LDO, which I actually misplaced in my initial wiring diagram. 9V is first stepped down to 3.3V using the TPS6. This 3.3V is then brought to 1.8V to power flash and codec etc. I had initially wired the TPS62172DSG according the "Typical Application Schematic" in the documentation for the chip, only to realize that the diagram was for a different version of the TPS6. The chip in the documentation had a fixed 1.8V output while I am using a fixed 3.3V output, so the feedback pin should be connected to ground (docs say analog, but I'm still not sure) or no connect. The TPS62172DSG also has a lower output current compared to that of the chip shown in the diagram, so the value of the inductor will have to change (value TBD).
 
 For Next Time
 - Draw PCM3060 connections
+
+## Day 7
+
+So the value of the inductor on the buck converter stays the same, it's just the Isat rating which changes apparently (to something greater than 750mA - check later), which I will need to take into consideration when choosing parts. An external 9V is being applied to the system to power the op amps in both the input and output stages, so I'll implement a mid-rail generator (virtual ground at 4.5V) using a resistor divider. For the input stage op amp I'll use something similar to the TL072, and the output stage will use the RC4580 or similar. I don't really care too much about small differences in how clean the sound is etc., but if my prototype doesn't work I want to have used cost efficient parts. I also finished connections between the IS25WP QSPI flash and the STM32H7, made using QUAD SPI Bank 1 pins for the singular external flash. I currently have the RESET pin in no connect, but I'll have to research this later for a possible pull to high. 
+
+For Next Time
+- Same goals as last time
