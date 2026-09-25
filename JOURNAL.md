@@ -88,3 +88,10 @@ To get a high 24 bit resolution useful for further filtration, the codec conduct
 The DAC on the codec functions in pretty much the same way as the ADC, only reversed. There’s an on-chip LPF which is used for initial filtration. In order to filter additional high frequency signals that are missed, I have an additional LPF off board in the output stage. In addition, the op amp runs on 9V of digital current, but we only want AC to exit the system so DC is isolated before the signal leaves.
 
 Helpful Reddit [Link](https://www.reddit.com/r/guitarpedals/comments/2gtboc/how_does_a_pedal_actually_work_lets_get_technical/)
+
+## Day 9
+
+So I found a [PCM3060EVM User Guide](https://www.ti.com/lit/ug/slau220/slau220.pdf) which has a pretty detailed wiring diagram for analog input and output. The PCM3060 actually has differential inputs, where the voltage difference between two signals is measured and common noise is shared between the two is removed. The output is also differential, containing complementary (one positive and one inverted) voltages. The inverted signal is able to swing to negative values because I had used VCOM earlier to set reference ground to 1.65V. So essentially, takeaway is that I will need a pair of TL072s and a pair of RC4580s for differential input/output. I kept staring at the PCMEVM User Guide and realized there was no way I would be able to wire audio preprocessing correctly on the first try since there are way too many passive components. So I'm using LTSpice for simulation before anything else goes on the schematic. I'm using the LT1057 as a drop in replacement for the TL072 since it comes in their default library.
+
+For Next Time
+- Finish differential input stage simulation in LTSpice

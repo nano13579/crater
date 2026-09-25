@@ -10070,13 +10070,23 @@
 	)
 	(text "Input Stage\n"
 		(exclude_from_sim no)
-		(at 378.714 84.074 0)
+		(at 315.214 85.344 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 		(uuid "73f65e23-4986-4e79-8f4a-21e685e9ed8e")
+	)
+	(text "Output Stage\n"
+		(exclude_from_sim no)
+		(at 334.518 123.444 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "be7d4b43-4d01-4ab4-bb74-b34333a7fa1e")
 	)
 	(text "available GPIO"
 		(exclude_from_sim no)
@@ -10087,6 +10097,16 @@
 			)
 		)
 		(uuid "e5e0b713-1ff0-49e6-ac90-1391add867dc")
+	)
+	(text "Input Stage\n"
+		(exclude_from_sim no)
+		(at 335.534 84.074 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e6e1ad89-dd4e-4e7e-a2fa-867508908394")
 	)
 	(junction
 		(at 86.36 30.48)
@@ -12524,7 +12544,7 @@
 	)
 	(wire
 		(pts
-			(xy 294.64 201.93) (xy 294.64 204.47)
+			(xy 447.04 265.43) (xy 447.04 267.97)
 		)
 		(stroke
 			(width 0)
@@ -13540,7 +13560,7 @@
 	)
 	(global_label "DAT1"
 		(shape input)
-		(at 295.91 139.7 180)
+		(at 448.31 203.2 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13550,7 +13570,7 @@
 		)
 		(uuid "0bd29b11-0c9a-46d4-b4b3-adc3dda95798")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 288.3891 139.7 0)
+			(at 440.7891 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13782,7 +13802,7 @@
 	)
 	(global_label "CMD"
 		(shape input)
-		(at 295.91 152.4 180)
+		(at 448.31 215.9 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13792,7 +13812,7 @@
 		)
 		(uuid "319eb509-281b-437c-b311-d69ff8959dfc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 288.9334 152.4 0)
+			(at 441.3334 215.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14420,7 +14440,7 @@
 	)
 	(global_label "VDD"
 		(shape input)
-		(at 295.91 149.86 180)
+		(at 448.31 213.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14430,7 +14450,7 @@
 		)
 		(uuid "6a935117-b924-427f-b4e3-a835011236cb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 289.2962 149.86 0)
+			(at 441.6962 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14596,7 +14616,7 @@
 	)
 	(global_label "DAT0"
 		(shape input)
-		(at 295.91 142.24 180)
+		(at 448.31 205.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14606,7 +14626,7 @@
 		)
 		(uuid "7a7f5be1-f8c1-4149-9589-313d5937c1dc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 288.3891 142.24 0)
+			(at 440.7891 205.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14662,7 +14682,7 @@
 	)
 	(global_label "DAT2"
 		(shape input)
-		(at 295.91 157.48 180)
+		(at 448.31 220.98 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14672,7 +14692,7 @@
 		)
 		(uuid "80bfb2e3-ce54-4aeb-a1e6-be729eef5bbc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 288.3891 157.48 0)
+			(at 440.7891 220.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15124,7 +15144,7 @@
 	)
 	(global_label "VSS"
 		(shape input)
-		(at 295.91 144.78 180)
+		(at 448.31 208.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15134,7 +15154,7 @@
 		)
 		(uuid "a445a2b2-4b22-41da-8b96-93089cf19364")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 289.4172 144.78 0)
+			(at 441.8172 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15322,7 +15342,7 @@
 	)
 	(global_label "CLK"
 		(shape input)
-		(at 295.91 147.32 180)
+		(at 448.31 210.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15332,7 +15352,7 @@
 		)
 		(uuid "c051e45c-ed94-453d-b68b-0979eb9f4eb5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 289.3567 147.32 0)
+			(at 441.7567 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15432,7 +15452,7 @@
 	)
 	(global_label "CD{slash}DAT3"
 		(shape input)
-		(at 295.91 154.94 180)
+		(at 448.31 218.44 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15442,7 +15462,7 @@
 		)
 		(uuid "c8bfd2ff-93e9-4723-943a-c66ffe69c8cb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 284.5186 154.94 0)
+			(at 436.9186 218.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17045,7 +17065,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:TL072")
-		(at 374.65 88.9 0)
+		(at 311.15 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17054,7 +17074,7 @@
 		(fields_autoplaced yes)
 		(uuid "227b08d4-dbc1-4d57-9297-4364b4a7c546")
 		(property "Reference" "U4"
-			(at 374.65 78.74 0)
+			(at 311.15 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17062,7 +17082,7 @@
 			)
 		)
 		(property "Value" "TL072"
-			(at 374.65 81.28 0)
+			(at 311.15 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17070,7 +17090,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 374.65 88.9 0)
+			(at 311.15 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17079,7 +17099,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf"
-			(at 374.65 88.9 0)
+			(at 311.15 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17088,7 +17108,7 @@
 			)
 		)
 		(property "Description" "Dual Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8"
-			(at 374.65 88.9 0)
+			(at 311.15 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17261,8 +17281,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:TL072")
+		(at 334.01 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2827aece-662f-43fb-95c1-385c858dfac2")
+		(property "Reference" "U7"
+			(at 334.01 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TL072"
+			(at 334.01 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 334.01 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl071.pdf"
+			(at 334.01 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual Low-Noise JFET-Input Operational Amplifiers, DIP-8/SOIC-8"
+			(at 334.01 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "bfff216c-650f-4004-8508-6775637488b8")
+		)
+		(pin "3"
+			(uuid "6be084db-f513-4894-b8a6-b2ab5b16970e")
+		)
+		(pin "2"
+			(uuid "6e2f6181-05e0-4c48-9d26-9f9c54e8da98")
+		)
+		(pin "1"
+			(uuid "33b82789-0a01-4f3e-bd14-31495c90812e")
+		)
+		(pin "6"
+			(uuid "a806f67e-e0a6-4d22-9cc8-db20ead7f77d")
+		)
+		(pin "7"
+			(uuid "c397046b-609c-4a9e-b876-e3cb3c84ad9a")
+		)
+		(pin "5"
+			(uuid "c5392f84-6205-4280-abd2-70b32591ce6d")
+		)
+		(pin "4"
+			(uuid "272fb8e4-4e56-4dce-8c0b-94e9ffda0044")
+		)
+		(instances
+			(project "pedal"
+				(path "/2ba961ea-4948-434c-8d5a-794fff8ebced"
+					(reference "U7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GNDD")
-		(at 294.64 204.47 0)
+		(at 447.04 267.97 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17271,7 +17377,7 @@
 		(fields_autoplaced yes)
 		(uuid "29edeafa-c0bc-42d7-8fc0-06599f2be425")
 		(property "Reference" "#PWR06"
-			(at 294.64 210.82 0)
+			(at 447.04 274.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17280,7 +17386,7 @@
 			)
 		)
 		(property "Value" "GNDD"
-			(at 294.64 208.28 0)
+			(at 447.04 271.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17288,7 +17394,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 294.64 204.47 0)
+			(at 447.04 267.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17297,7 +17403,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 294.64 204.47 0)
+			(at 447.04 267.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17306,7 +17412,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDD\" , digital ground"
-			(at 294.64 204.47 0)
+			(at 447.04 267.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17809,7 +17915,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 295.91 118.11 0)
+		(at 448.31 181.61 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17818,7 +17924,7 @@
 		(fields_autoplaced yes)
 		(uuid "38529b29-37e8-4a83-963e-0e921baa99a4")
 		(property "Reference" "J5"
-			(at 298.45 118.1099 0)
+			(at 450.85 181.6099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17827,7 +17933,7 @@
 			)
 		)
 		(property "Value" "Debug"
-			(at 298.45 120.6499 0)
+			(at 450.85 184.1499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17836,7 +17942,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 295.91 118.11 0)
+			(at 448.31 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17845,7 +17951,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 295.91 118.11 0)
+			(at 448.31 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17854,7 +17960,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 295.91 118.11 0)
+			(at 448.31 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18022,7 +18128,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x08")
-		(at 303.53 147.32 0)
+		(at 455.93 210.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -18031,7 +18137,7 @@
 		(fields_autoplaced yes)
 		(uuid "48c7b50c-c087-42a0-bf89-ad9c9107b189")
 		(property "Reference" "J3"
-			(at 306.07 147.3199 0)
+			(at 458.47 210.8199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18040,7 +18146,7 @@
 			)
 		)
 		(property "Value" "Micro SD"
-			(at 306.07 149.8599 0)
+			(at 458.47 213.3599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18049,7 +18155,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 303.53 147.32 0)
+			(at 455.93 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18058,7 +18164,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 303.53 147.32 0)
+			(at 455.93 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18067,7 +18173,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 303.53 147.32 0)
+			(at 455.93 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18519,7 +18625,7 @@
 	)
 	(symbol
 		(lib_id "Connector:USB_B_Micro")
-		(at 294.64 191.77 0)
+		(at 447.04 255.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -18528,7 +18634,7 @@
 		(fields_autoplaced yes)
 		(uuid "559fd04e-27dd-4dcb-86e8-f98e8b504750")
 		(property "Reference" "J4"
-			(at 294.64 179.07 0)
+			(at 447.04 242.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18536,7 +18642,7 @@
 			)
 		)
 		(property "Value" "USB_B_Micro"
-			(at 294.64 181.61 0)
+			(at 447.04 245.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18544,7 +18650,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 298.45 193.04 0)
+			(at 450.85 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18553,7 +18659,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 298.45 193.04 0)
+			(at 450.85 256.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18562,7 +18668,7 @@
 			)
 		)
 		(property "Description" "USB Micro Type B connector"
-			(at 294.64 191.77 0)
+			(at 447.04 255.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19276,6 +19382,92 @@
 			(project ""
 				(path "/2ba961ea-4948-434c-8d5a-794fff8ebced"
 					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:RC4580")
+		(at 330.2 128.27 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "706f0a1f-9c50-4ead-89cf-c0da546bd10d")
+		(property "Reference" "U8"
+			(at 330.2 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RC4580"
+			(at 330.2 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 330.2 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/rc4580.pdf"
+			(at 330.2 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual Audio Operational Amplifier, SOIC-8/SSOP-8"
+			(at 330.2 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "6"
+			(uuid "fff5e4d7-5049-42c3-9374-1d6f1d5e77c0")
+		)
+		(pin "3"
+			(uuid "b31e7f49-e7d0-4d2d-8a20-262463473a89")
+		)
+		(pin "2"
+			(uuid "ebbfb4ef-fd10-4b13-afc9-d7fc62c4c4b7")
+		)
+		(pin "1"
+			(uuid "48f407a1-e5da-4d62-baae-2648eab62309")
+		)
+		(pin "5"
+			(uuid "a9bf8c5c-8e56-464e-a97b-c2156f302926")
+		)
+		(pin "4"
+			(uuid "975f3a88-1d75-4b94-bdb7-f068dbe624b3")
+		)
+		(pin "7"
+			(uuid "3ee85ba4-c373-4a54-9570-70b4a83f54c1")
+		)
+		(pin "8"
+			(uuid "2346fe57-7163-4b14-942b-8d1b795f9eaf")
+		)
+		(instances
+			(project "pedal"
+				(path "/2ba961ea-4948-434c-8d5a-794fff8ebced"
+					(reference "U8")
 					(unit 1)
 				)
 			)
@@ -20506,7 +20698,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Audio:AudioJack3")
-		(at 351.79 88.9 0)
+		(at 288.29 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -20515,7 +20707,7 @@
 		(fields_autoplaced yes)
 		(uuid "b0fc6423-0c90-4cc2-8da4-cb09bc942634")
 		(property "Reference" "J1"
-			(at 349.885 80.01 0)
+			(at 286.385 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20523,7 +20715,7 @@
 			)
 		)
 		(property "Value" "AudioJack3"
-			(at 349.885 82.55 0)
+			(at 286.385 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20531,7 +20723,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 351.79 88.9 0)
+			(at 288.29 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20540,7 +20732,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 351.79 88.9 0)
+			(at 288.29 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20549,7 +20741,7 @@
 			)
 		)
 		(property "Description" "Audio Jack, 3 Poles (Stereo / TRS)"
-			(at 351.79 88.9 0)
+			(at 288.29 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
