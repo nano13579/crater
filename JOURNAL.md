@@ -95,3 +95,20 @@ So I found a [PCM3060EVM User Guide](https://www.ti.com/lit/ug/slau220/slau220.p
 
 For Next Time
 - Finish differential input stage simulation in LTSpice
+
+## Day 10
+
+When I was looking through the design considerations of the PCM3060 datasheet earlier, I had missed the section that had a full wiring diagram for an example analog input and output stage. My design will probably differ, but it's nice to have a reference to look at. Also I mislabeled Vcc as 3.3V on the codec, changed it to +5V. So VCOM would actually be at ~2.5V. Since I'm using the default differential output for the PCM, I need to add a negative rail, so that the output signal can swing both positive and negative. 
+
+![alt text](<images/Pasted image 20261025155147.png>)
+
+Above is the waveform for the output stage, where a differential signal from the PCM3060 is converted to a single signal which will ultimately be fed through the output jack. I shifted the phase of VOUTL- so that I could see the difference between the two signals. The output signal experiences a gain of 0.75, thus why it bottoms out at -1.5V while the difference between the differential signals is at -2. 
+
+![alt text](<images/Pasted image 20261025161936.png>)
+
+This is a part of the input stage. The pickup coils for guitars are, of course, very high impedance, and the signal also needs to be brought up 2.5V (VCOM) for the PCM. The LT1057 is set up as an inverting amplifier for this stage with a feedback resister of 10kohms. Something I [learned](https://www.electronics-tutorials.ws/opamp/opamp_2.html) about these inverting (negative terminal connected to ground and output) op amp stages is that our gain is calculated as the negative ratio between the feedback and input resistors. 
+
+I've been stuck on the input/output stages for the past few days because I couldn't find the power pins and assumed that the two separate parts of the dual op amp were represented by a single schematic symbol. Turns out I just had to click three times for the second half and power pins to show up. 
+
+For Next Time
+- Finish schematic for input & output stages, start pcb?!
