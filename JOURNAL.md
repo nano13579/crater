@@ -17,7 +17,7 @@ a custom guitar pedal PCB - Crater is reference to the Comet Distortion modifica
 
 **Load**: device/unit receiving or measuring an electrical signal
 
-## Day 1
+## Update 1
 
 There are a lot of designs for single effect units (i.e. only overdrive etc.) so I will likely make a digital multi effects unit that has controls for fuzz, distortion, and overdrive. Initially thinking about using a single effect pedal, I was leaning towards a modular analog design for its warm tones, specifically including PT2399 Echo Chip IC and the JRC4558 op amp in my original plans. However, since the pedal will control multiple effects, I'll likely use a DSP for controlling many effects at once/separately. Between Daisy Seed and Teensy - microcontroller based DSPs - the Daisy Seed seems to have more coherent docs and greater support and a DAC, which the Teensy lacks and will likely give me a headache later. Yet I’m not sure I enjoy the prepackaged feel or the high cost of the Daisy microcontroller so I’ll likely mimic the DSP using an STM32H7. Things to add: audio coder-decoder, clock, buffer and protection, power management, and I/O.
 
@@ -35,11 +35,11 @@ For Next Time
 - As much as I was trying to avoid the high price of the Daisy, the STM32H7 is actually relatively expensive compared to other MCUs in the STM32 series. Maybe I'll look for some alternatives or something.
 - The Daisy Seed was last updated early in 2022, so some components may be outdated and/or have better alternatives - look for these too.
 
-## Day 2
+## Update 2
 
 I set up the basic schematic adding the peripherals I had mentioned earlier. I'm also adding a Micro-B USB and debug and I/O and some buttons + LEDs. And a crystal. Schematic is still in planning stage in which I've currently just placed various components I plan on using. However, I think I want to shift my focus to the passive components/ICs that I'll be using for the effects that I plan to have. 
 
-## Day 3
+## Update 3
 
 ![alt text](<excalidraw.png>)
 
@@ -49,35 +49,35 @@ For Next Time
 - Finish wiring SDRAM and Flash to the STM
 - Create more concrete plans for operational amplifiers etc.
 
-## Day 4
+## Update 4
 
 I learned that the xT in the IS42 SDRAM represented solderable pins over the difficult to handle BGA, so I ended up having chose the right package. I set up the basic power pins for the STM, placing 100nF capacitors per VDD pin and a single 10uF bulk capacitor. Since the audio is handled using an external ADC and DAC in the form of the PCM codec, I can connect VDDA to both VSSA and VREF+. I [found](https://electronics.stackexchange.com/questions/589927/purpose-of-vref-in-mcus-adcs) that VREF+ marks an absolute reference voltage (the difference in potential energy between a point and a defined, or absolute, value) which the STM32H7 can compare input analog signals to. In simpler chips VREF+ is preconnected to VDDA, however this STM provides the ability to use a lower reference voltage for higher precision. However, since I do not plan on using the onboard ADC (much? - will disconnect the pin later if need be), I will not need this extra precision, so the VCC will be used as a reference instead. I found general guidelines for power supply decoupling in the [STM32H750IB datasheet](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.st.com/resource/en/datasheet/stm32h750ib.pdf&ved=2ahUKEwjZ9bLWxIiVAxWVKEQIHahbDHcQFnoECCEQAQ&usg=AOvVaw3bOUsi3I8JUORLRKVO5P65). 
 
 For Next Time
 - Same goals as last time
 
-## Day 5
+## Update 5
 
 Added a ferrite bead to bridge DC to the noisy AC rail. The bead provides resistance against the alternating current but allows DC current to flow through, powering the analog components. I chose 120R impedance at 100MHz, only because I've seen examples of this value bead having been used in other similar chips. I'm not sure if it will work for my board, will likely have to find and check against a possible bead's ZRX graph. I also realized that I forgot the external clock as a part of the DSP to my wiring diagram. Some general notes that I took when wiring the [IS42 SDRAM](https://www.issi.com/WW/pdf/42-45S16400J.pdf): This is a 16 bit wide chip and requires data to be transferred in its full width, so the data mask pins (LDQM and UDQM) are used to write data in the form of two 8 bit chunks. FMC_NBL0 handles the lower byte and FMC_NBL1 handles the upper byte, the STM32 can choose to write to one or to the other or both, whichever is not in use is driven high, telling the IS42 to ignore the byte. FMC itself stands for Flexible Memory Controller and allows the STM32 to integrate external memory sources and map these external IC's - processes will albeit be a little slower than on-board hardware. DQ0 to DQ16 on the IS42 are I/O. The 12 addressable pins A0 through A11 specify data storage/retrieval location in terms of row and column addresses. Both I/O and and addressable pins are bidirectional to allow for both reading and writing. Control lines are wired appropriately with pins that have predetermined FMC functions (found in the Pin Description section of the SMT32 datasheet). I'm not entirely sure that I wired the VDD and GND pins right, will check this later.
 
 For Next Time
 - Same as last time, but implement external crystal oscillator
 
-## Day 6
+## Update 6
 
 Finished setting up the external clock, I still have to choose a specific crystal that is rated for the 18pF caps, but will likely do this later. Also completed wiring the LP2985 1.8V LDO, which I actually misplaced in my initial wiring diagram. 9V is first stepped down to 3.3V using the TPS6. This 3.3V is then brought to 1.8V to power flash and codec etc. I had initially wired the TPS62172DSG according the "Typical Application Schematic" in the documentation for the chip, only to realize that the diagram was for a different version of the TPS6. The chip in the documentation had a fixed 1.8V output while I am using a fixed 3.3V output, so the feedback pin should be connected to ground (docs say analog, but I'm still not sure) or no connect. The TPS62172DSG also has a lower output current compared to that of the chip shown in the diagram, so the value of the inductor will have to change (value TBD).
 
 For Next Time
 - Draw PCM3060 connections
 
-## Day 7
+## Update 7
 
 So the value of the inductor on the buck converter stays the same, it's just the Isat rating which changes apparently (to something greater than 750mA - check later), which I will need to take into consideration when choosing parts. An external 9V is being applied to the system to power the op amps in both the input and output stages, so I'll implement a mid-rail generator (virtual ground at 4.5V) using a resistor divider. For the input stage op amp I'll use something similar to the TL072, and the output stage will use the RC4580 or similar. I don't really care too much about small differences in how clean the sound is etc., but if my prototype doesn't work I want to have used cost efficient parts. I also finished connections between the IS25WP QSPI flash and the STM32H7, made using QUAD SPI Bank 1 pins for the singular external flash. I currently have the RESET pin in no connect, but I'll have to research this later for a possible pull to high.
 
 For Next Time
 - Same goals as last time
 
-## Day 8
+## Update 8
 
 I wired the PCM3060 as per the datasheet about a month ago. Since it has been a while, this is a reexamination of the digital signal processing that is occurring within the system:
 
@@ -89,14 +89,14 @@ The DAC on the codec functions in pretty much the same way as the ADC, only reve
 
 Helpful Reddit [Link](https://www.reddit.com/r/guitarpedals/comments/2gtboc/how_does_a_pedal_actually_work_lets_get_technical/)
 
-## Day 9
+## Update 9
 
 So I found a [PCM3060EVM User Guide](https://www.ti.com/lit/ug/slau220/slau220.pdf) which has a pretty detailed wiring diagram for analog input and output. The PCM3060 actually has differential inputs, where the voltage difference between two signals is measured and common noise is shared between the two is removed. The output is also differential, containing complementary (one positive and one inverted) voltages. The inverted signal is able to swing to negative values because I had used VCOM earlier to set reference ground to 1.65V. So essentially, takeaway is that I will need a pair of TL072s and a pair of RC4580s for differential input/output. I kept staring at the PCMEVM User Guide and realized there was no way I would be able to wire audio preprocessing correctly on the first try since there are way too many passive components. So I'm using LTSpice for simulation before anything else goes on the schematic. I'm using the LT1057 as a drop in replacement for the TL072 since it comes in their default library.
 
 For Next Time
 - Finish differential input stage simulation in LTSpice
 
-## Day 10
+## Update 10
 
 When I was looking through the design considerations of the PCM3060 datasheet earlier, I had missed the section that had a full wiring diagram for an example analog input and output stage. My design will probably differ, but it's nice to have a reference to look at. Also I mislabeled Vcc as 3.3V on the codec, changed it to +5V. So VCOM would actually be at ~2.5V. Since I'm using the default differential output for the PCM, I need to add a negative rail, so that the output signal can swing both positive and negative. 
 
