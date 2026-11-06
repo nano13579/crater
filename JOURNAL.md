@@ -112,3 +112,11 @@ I've been stuck on the input/output stages for the past few days because I could
 
 For Next Time
 - Finish schematic for input & output stages, start pcb?!
+
+## Update 11
+
+I needed a negative rail that could swing to both +5V and -5V (roughly). There's very little resources online which had recommendations for a negative voltage inverter. I did find a [forum](https://www.reddit.com/r/diypedals/comments/100m83b/negative_voltage_inverter/) from four years ago which talked about the LT1054, but it's operating range was much higher than I needed. Texas Instruments does have the LM27761 which I think I will use. And now! Because I've switched to a negative rail with a voltage difference of 9.5V I no longer need an external 9V source!! The op amps were the only components that needed upwards of 9V to run, but no longer! Also finished wiring the op-amps (unity buffer, gain and differential to single ended output). HUGE thanks to the PCM3060EVM User Guide which had pretty much all the values for my caps and feedback/input resistors. The waveforms that I generated used a drop in replacement for the op amps in my design. For future testing I might switch them out with the actual models for the TL072 and RC4580. So last time I was just looking at how the current was changing over time (in the LTspice simulation). 
+
+![alt text](<images/ac_analysis.png>)
+
+I ran ac analysis, but there's a huge dip in the waveforms and much more than expected. I believe that my resistor values might be a little off. In other news I have no ERC errors! I finished assigning all the footprints and got started on arranging the components for my pcb.
